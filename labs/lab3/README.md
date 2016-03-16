@@ -12,7 +12,7 @@ In this lab, you will use various types of tools -- from command line tools like
 
 See the [setup instructions](./SETUP.md)
 
-The `lab3` directory contains two datasets that you will work with:
+The `lab` directory contains two datasets that you will work with:
 
 1. A dataset of all the movies in 2013 from January to March (`2013films.txt`). It contains Movie name, Production house, Genre, Publisher and some other details.
 
