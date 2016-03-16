@@ -49,6 +49,7 @@ Use the tool to generate output as follows, i.e., Movie name, Production/Distrib
 
         'A dark truth, Magnolia Pictures, Damian Lee, Action,ComingSoon.net
          Table No. 21, Eros International, Aditya Datt, Thriller, BoxOfficeMojo.com
+         ...
         
 For the purpose of explanation columns are separated by ||. You can choose any pattern to extract information. 
 
