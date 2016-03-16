@@ -53,11 +53,11 @@ Use the tool to generate output as follows, i.e., Movie name, Production/Distrib
         
 For the purpose of explanation columns are separated by ||. You can choose any pattern to extract information. 
 
-1.Movie name can be identified as first column in every line formatted as ''[[ <movie name> ]]''
-1.Production/Distribution house is the following column that is formatted as [[< Production house>]] 
-1.Director name can be identified with "(director)" tag that follows the name
-1.Genre is present in the next column but make sure to extract only second part that is separated by | operator. For eg. in [Action film|Action] relevant information is Action
-1. Publisher name can be identified in the last column with format "publisher=<publisher name>"
+#Movie name can be identified as first column in every line formatted as ''[[ <movie name> ]]''
+#Production/Distribution house is the following column that is formatted as [[< Production house>]] 
+#Director name can be identified with "(director)" tag that follows the name
+#Genre is present in the next column but make sure to extract only second part that is separated by | operator. For eg. in [Action film|Action] relevant information is Action
+#Publisher name can be identified in the last column with format "publisher=<publisher name>"
 
 It may help to skip first few lines that contains html code, so that you process actual records.
 
@@ -106,12 +106,12 @@ You are encouraged to play with these tools and familiarize yourselves with the 
 
 As an example, the following sequence of commands can be used to answer the third question from the [lab 2](../lab2/) ("Find the five uids that have tweeted the most").
 
-	grep "created\_at" twitter.json | sed 's/"user":{"id":\([0-9]*\).*/XXXXX\1/' | sed 's/.*XXXXX\([0-9]*\)$/\1/' | sort | uniq -c | sort -n | tail -5
+    grep "created\_at" twitter.json | sed 's/"user":{"id":\([0-9]*\).*/XXXXX\1/' | sed 's/.*XXXXX\([0-9]*\)$/\1/' | sort | uniq -c | sort -n | tail -5
 
 The first command (`grep`) discards the deleted tweets, the `sed` commands extract the first "user-id" from each line, `sort` sorts the user ids, and `uniq -c` counts the unique entries (i.e., user ids). The final `sort -n | tail -5` return the top 5 uids.
 Note that, combining the two `sed` commands as follows does not do the right thing -- we will let you figure out why.
 
-	grep "created\_at" twitter.json | sed 's/.*"user":{"id":\([0-9]*\).*/\1/' | sort | uniq -c | sort -n | tail -5"
+    grep "created\_at" twitter.json | sed 's/.*"user":{"id":\([0-9]*\).*/\1/' | sort | uniq -c | sort -n | tail -5"
 
 To get into some details:
 
@@ -119,11 +119,11 @@ To get into some details:
 
 The basic syntax for `grep` is: 
 
-	 grep 'regexp' filename
+     grep 'regexp' filename
 
 or equivalently (using UNIX pipelining):
 
-	cat filename | grep 'regexp'
+    cat filename | grep 'regexp'
 
 The output contains only those lines from the file that match the regular expression. Two options to grep are useful: `grep -v` will output those lines that
 *do not* match the regular expression, and `grep -i` will ignore case while matching. See the manual (`man grep`) (or online resources) for more details.
@@ -131,7 +131,7 @@ The output contains only those lines from the file that match the regular expres
 ## sed
 Sed stands for _stream editor_. Basic syntax for `sed` is:
 
-	sed 's/regexp/replacement/g' filename
+    sed 's/regexp/replacement/g' filename
 
 For each line in the intput, the portion of the line that matches _regexp_ (if any) is replaced with _replacement_. Sed is quite powerful within the limits of
 operating on single line at a time. You can use \\( \\) to refer to parts of the pattern match. In the first sed command above, the sub-expression within \\( \\)
@@ -142,7 +142,7 @@ extracts the user id, which is available to be used in the _replacement_ as \1.
 
 Finally, `awk` is a powerful scripting language (not unlike perl). The basic syntax of `awk` is: 
 
-	awk -F',' 'BEGIN{commands} /regexp1/ {command1} /regexp2/ {command2} END{commands}' 
+    awk -F',' 'BEGIN{commands} /regexp1/ {command1} /regexp2/ {command2} END{commands}' 
 
 For each line, the regular expressions are matched in order, and if there is a match, the corresponding command is executed (multiple commands may be executed
 for the same line). BEGIN and END are both optional. The `-F','` specifies that the lines should be _split_ into fields using the separator "_,_", and those fields are available to the regular
@@ -156,17 +156,17 @@ A few examples to give you a flavor of the tools and what one can do with them.
 
 1. Perform the equivalent of _wrap_ on `labor.csv` (i.e., merge consecutive groups of lines referring to the same record)
 
-    	cat labor.csv | awk '/^Series Id:/ {print combined; combined = $0} 
+        cat labor.csv | awk '/^Series Id:/ {print combined; combined = $0} 
                             !/^Series Id:/ {combined = combined", "$0;}
-    	                    END {print combined}'
+                            END {print combined}'
 
 1. On  `crime-clean.txt`, the following command does a _fill_ (first row of output: "Alabama, 2004, 4029.3".
 
-    	cat crime-clean.txt | grep -v '^,$' | awk '/^[A-Z]/ {state = $4} !/^[A-Z]/ {print state, $0}'
+        cat crime-clean.txt | grep -v '^,$' | awk '/^[A-Z]/ {state = $4} !/^[A-Z]/ {print state, $0}'
     
 1. On `crime-clean.txt`, the following script cleans the data as was done in the Wrangler demo in class. The following works assuming perfectly homogenous data (as the example on the Wrangler wbesite is).
 
-    	cat crime-clean.txt | grep -v '^,$' | sed 's/,$//g; s/Reported crime in //; s/[0-9]*,//' | 
+        cat crime-clean.txt | grep -v '^,$' | sed 's/,$//g; s/Reported crime in //; s/[0-9]*,//' | 
             awk -F',' 'BEGIN {printf "State, 2004, 2005, 2006, 2007, 2008"} 
                 /^[A-Z]/ {print c; c=$0}  
                 !/^[A-Z]/ {c=c", "$0;}    
@@ -175,7 +175,7 @@ A few examples to give you a flavor of the tools and what one can do with them.
 1. On `crime-unclean.txt` the follow script perfroms the same cleaning as above, but
 allows incomplete information (e.g., some years may be missing).
 
-    	cat crime-unclean.txt | grep -v '^,$' | sed 's/Reported crime in //;' | 
+        cat crime-unclean.txt | grep -v '^,$' | sed 's/Reported crime in //;' | 
                 awk -F',' 'BEGIN {printf "State, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008"} 
                            /^[A-Z]/ || /^$/ {if(state) {
                                         printf(state); 
