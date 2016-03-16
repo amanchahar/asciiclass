@@ -1,4 +1,4 @@
-These are setup instructions for the [data structuring lab](./README.md)
+These are setup instructions for the [data processing lab](./README.md)
 
 You can either setup a local virtual machine, or run a virtual machine in Amazon EC2.
 
