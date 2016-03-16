@@ -202,13 +202,16 @@ Perform the above cleaning tasks using these tools.   No need to re-answer the q
 3. What additional operations would have made using Data Wrangler "easier"?
 
 
-# Handing in your work
+### Handing in your work
 
-Answer the questions above in a text file called "lab3-lastname", where lastname is your last name.  Make sure the text file also has your complete name.   Save your Wrangler and command line scripts as separate files and create a zip file or tarball with all three files.   Upload it to the [course Stellar site](http://stellar.mit.edu/S/course/6/fa13/6.885/) as the "lab3" assignment.
+1. Create a PDF file containing: 
+  * your name 
+  * the results of the tasks in Wrangler section  
+  * the brief responses to the reflection questions 
+2. Create a folder that has all the code that **you've** written (AWK, SED) and wrangler generated python scripts. Please don't upload the same files that we've provided for this assignment.
+3. Create a zip containing the PDF and the code folder 
+4. Submit on Courseworks.
 
-Now you're almost done!  Go read the assigned paper(s) for today.
-
-You can always feel free to contact us with questions on [Piazza](https://piazza.com/class/hl6u4m7ft8n373).
 
 ### Feedback (optional, but valuable)
 
