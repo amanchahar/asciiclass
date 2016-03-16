@@ -53,14 +53,13 @@ Use the tool to generate output as follows, i.e., Movie name, Production/Distrib
         
 For the purpose of explanation columns are separated by ||. You can choose any pattern to extract information. 
 
-Movie name can be identified as first column in every line formatted as ''[[ <movie name> ]]''
-Production/Distribution house is the following column that is formatted as [[< Production house>]] 
-Director name can be identified with "(director)" tag that follows the name
-Genre is present in the next column but make sure to extract only second part that is separated by | operator. For eg. in [Action film|Action] relevant information is Action
-Publisher name can be identified in the last column with format "publisher=<publisher name>"
+1.Movie name can be identified as first column in every line formatted as ''[[ <movie name> ]]''
+1.Production/Distribution house is the following column that is formatted as [[< Production house>]] 
+1.Director name can be identified with "(director)" tag that follows the name
+1.Genre is present in the next column but make sure to extract only second part that is separated by | operator. For eg. in [Action film|Action] relevant information is Action
+1. Publisher name can be identified in the last column with format "publisher=<publisher name>"
 
 It may help to skip first few lines that contains html code, so that you process actual records.
-
 
 **note**: `lab3/wrangler` contains a modified python wrangler module, which you should use for this lab.  This means that the python scripts that you export when using Data Wrangler should be run in the `lab3/` folder.
 
