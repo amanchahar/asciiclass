@@ -9,15 +9,7 @@ In this lab, you will use various types of tools -- from command line tools like
 
 # Setup
 
-To start, go to the AWS console and start your EC2 instance.  SSH into it.
-First, you need to check out/update the files for lab3:
-
-    cd asciiclass/labs/
-    git pull
-
-Then:
-
-    cd lab3
+See the [setup instructions](./SETUP.md)
 
 The `lab3` directory contains two datasets (in addition to the datasets used in class):
 
