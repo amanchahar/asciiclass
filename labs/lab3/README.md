@@ -1,4 +1,4 @@
-# Lab 3
+# Data Processing
 
 *Assigned: Tuesday, September 17*
 
