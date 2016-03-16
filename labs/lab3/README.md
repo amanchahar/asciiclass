@@ -1,17 +1,15 @@
 # Lab 3
 
-*Assigned: Tuesday, September 17*
+*Assigned: *
 
-*Due: Tuesday, September 24th, 12:59 PM (just before class)*
+*Due:  (just before class)*
 
-*Update, September 19th: Removed "However, there is no explicit deliverable in this lab" statement from sed/awk section, since we want you to turn in your scripts.*
 
 In this lab, you will use various types of tools -- from command line tools like `sed` and `awk` to high-level tools like Data Wrangler -- to perform data parsing and extraction from data encoded into a text file.  The goal of this lab is simply to gain experience with these tools and compare and contrast their usage.
 
 
 # Setup
 
-To start, go to the AWS console and start your EC2 instance.  SSH into it.
 First, you need to check out/update the files for lab3:
 
     cd asciiclass/labs/
@@ -23,9 +21,7 @@ Then:
 
 The `lab3` directory contains two datasets (in addition to the datasets used in class):
 
-1. A dataset of synonyms and their meanings (`synsets.txt`). Each line contains one synset with the following format:
-
-    ID, &lt;synonyms separated by spaces&gt;, &lt;different meanings separated by semicolons&gt;
+1. A dataset of all the movies in 2013 from January to March (`2013films.txt`). It contains movie name, production house, genre, publisher and some other details.
 
 1. The second dataset (`worldcup.txt`) is a snippet of the following Wikipedia webpage on [FIFA (Soccer) World Cup](http://en.wikipedia.org/wiki/FIFA_World_Cup).
 Specifically it is a partially cleaned-up wiki source for the table toward the end of the page that lists teams finishing in the top 4. 
@@ -49,18 +45,11 @@ Use Data Wrangler for the following two datasets.
 
 ### synsets.txt
 
-Generate a list of word-meaning pairs. The output should look like:
+Use the tool to generate output as follows, i.e., Movie name, Production house, director, Genre and publisher.
 
-        'hood,(slang) a neighborhood
-        1530s,the decade from 1530 to 1539
-        ...
-        angstrom,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-        angstrom, used to specify wavelengths of electromagnetic radiation
-        angstrom\_unit,a metric unit of length equal to one ten billionth of a meter (or 0.0001 micron)
-        angstrom\_unit, used to specify wavelengths of electromagnetic radiation
-        ...
-
-The `synsets.txt` file is too large to load into the Wrangler GUI, so you need to use the GUI to wrangle a subset of the data, then run a command line script on the complete data set.
+        'A dark truth, Magnolia Pictures, Damian Lee, Action,ComingSoon.net
+         Table No. 21, Eros International, Aditya Datt, Thriller, BoxOfficeMojo.com
+        
 
 **note**: `lab3/wrangler` contains a modified python wrangler module, which you should use for this lab.  This means that the python scripts that you export when using Data Wrangler should be run in the `lab3/` folder.
 
@@ -68,7 +57,7 @@ The `synsets.txt` file is too large to load into the Wrangler GUI, so you need t
 #### Questions
 
 1. Export the Python version of the wrangler script and save it to a file.  
-1. Use the script to clean the data, then determine how many unique words there are in the dataset.
+1. Use the script to clean the data, then determine how many movies were produced by each production house.
 
 ### worldcup.txt
 
