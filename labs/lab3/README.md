@@ -19,9 +19,9 @@ Then:
 
     cd lab3
 
-The `lab3` directory contains two datasets (in addition to the datasets used in class):
+The `lab3` directory contains two datasets that you will work with:
 
-1. A dataset of all the movies in 2013 from January to March (`2013films.txt`). It contains movie name, production house, genre, publisher and some other details.
+1. A dataset of all the movies in 2013 from January to March (`2013films.txt`). It contains Movie name, Production house, Genre, Publisher and some other details.
 
 1. The second dataset (`worldcup.txt`) is a snippet of the following Wikipedia webpage on [FIFA (Soccer) World Cup](http://en.wikipedia.org/wiki/FIFA_World_Cup).
 Specifically it is a partially cleaned-up wiki source for the table toward the end of the page that lists teams finishing in the top 4. 
@@ -43,13 +43,23 @@ Some tips using Wrangler:
 
 Use Data Wrangler for the following two datasets.  
 
-### synsets.txt
+### 2013films.txt
 
-Use the tool to generate output as follows, i.e., Movie name, Production house, director, Genre and publisher.
+Use the tool to generate output as follows, i.e., Movie name, Production/Distribtuion house, Director, Genre and publisher. 
 
         'A dark truth, Magnolia Pictures, Damian Lee, Action,ComingSoon.net
          Table No. 21, Eros International, Aditya Datt, Thriller, BoxOfficeMojo.com
         
+For the purpose of explanation columns are separated by ||. You can choose any pattern to extract information. 
+
+Movie name can be identified as first column in every line formatted as ''[[ <movie name> ]]''
+Production/Distribution house is the following column that is formatted as [[< Production house>]] 
+Director name can be identified with "(director)" tag that follows the name
+Genre is present in the next column but make sure to extract only second part that is separated by | operator. For eg. in [Action film|Action] relevant information is Action
+Publisher name can be identified in the last column with format "publisher=<publisher name>"
+
+It may help to skip first few lines that contains html code, so that you process actual records.
+
 
 **note**: `lab3/wrangler` contains a modified python wrangler module, which you should use for this lab.  This means that the python scripts that you export when using Data Wrangler should be run in the `lab3/` folder.
 
@@ -57,7 +67,7 @@ Use the tool to generate output as follows, i.e., Movie name, Production house, 
 #### Questions
 
 1. Export the Python version of the wrangler script and save it to a file.  
-1. Use the script to clean the data, then determine how many movies were produced by each production house.
+1. Use the script to clean the data, then determine which Production/Distribution house produced maximum movies.
 
 ### worldcup.txt
 
