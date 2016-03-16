@@ -1,4 +1,4 @@
-# Lab 3
+# Data Processing
 
 *Assigned: *
 
@@ -10,14 +10,7 @@ In this lab, you will use various types of tools -- from command line tools like
 
 # Setup
 
-First, you need to check out/update the files for lab3:
-
-    cd asciiclass/labs/
-    git pull
-
-Then:
-
-    cd lab3
+See the [setup instructions](./SETUP.md)
 
 The `lab3` directory contains two datasets that you will work with:
 
